@@ -1,0 +1,23 @@
+######### NEXT GROWING NUMBER ALGORITHM #########
+
+
+## Verify if x is a growing number
+def verif(x):
+    i=1
+    while(i<len(x)):
+        if x[i]>=x[i-1]:i+=1
+        else:break
+    return i==len(x)
+
+## Collecting the input and adding 1
+n = input()
+m = str(int(n)+1)
+
+## Finding the first index value that doesn't verify the rule and copying it's value on the rest of the string
+for i in range(len(m)):
+    if verif(m[:i+1]) != True:
+        m = m[:i] + (len(m)-i) * m[i-1]
+        break
+
+print(m)
+
